@@ -1,11 +1,12 @@
 #!/bin/bash
 # install.sh: Deploy all router configurations, install packages, and enable services for boot.
 
-# --- User Input Prompt ---
+# --- User Input Prompt (Interactive) ---
 echo "--- Configuration Script for Router Services (Setup & Installation) ---"
 read -r -p "Enter the **LAN interface name** (e.g., ens18, eth0): " LAN_INTERFACE
+read -r -p "Enter the **Physical WAN interface name** (e.g., ens19, eth1): " WAN_PHY_INTERFACE
 # ---
-# Define WAN interface based on PPPoE setup
+# Define the virtual WAN interface (created by PPPoE)
 WAN_INTERFACE="ppp0"
 
 INTERFACES_FILE="/etc/network/interfaces"
@@ -18,7 +19,7 @@ IPTABLES_RULES_V4="/root/rules.fw"
 IPTABLES_RULES_V6="/root/rules6.fw"
 
 echo ""
-echo "Using LAN interface: **${LAN_INTERFACE}** | WAN interface: **${WAN_INTERFACE}**"
+echo "Using LAN interface: **${LAN_INTERFACE}** | Physical WAN interface: **${WAN_PHY_INTERFACE}** | Virtual WAN interface: **${WAN_INTERFACE}**"
 echo "--------------------------------------------------------"
 
 # --- Section 1: Install Required Packages ---
@@ -70,12 +71,12 @@ netmask 64
 # PPPoE setup (requires pppoeconf)
 auto dsl-provider
 iface dsl-provider inet ppp
-pre-up /bin/ip link set ens19 up # line maintained by pppoeconf
+pre-up /bin/ip link set ${WAN_PHY_INTERFACE} up # line maintained by pppoeconf
 provider dsl-provider
 
 # WAN Physical Interface (set to manual as pppoeconf will handle it)
-auto ens19
-iface ens19 inet manual
+auto ${WAN_PHY_INTERFACE}
+iface ${WAN_PHY_INTERFACE} inet manual
 EOF
 
 echo "✅ Network interfaces configuration saved."
@@ -420,8 +421,16 @@ fi
 # --- Section 10: Final Message and Reboot ---
 echo ""
 echo "=========================================================="
-echo "🚨 **Configuration completed, rebooting...**"
-echo "➡️ **Please run pppoeconf when the router has completed booting up.**"
+echo "🚨 **Configuration completed. System reboot is highly recommended.**"
+echo "➡️ **Next Step: Run 'sudo pppoeconf' after reboot to set up your WAN connection.**"
 echo "=========================================================="
-sleep 5
-sudo reboot
+
+read -r -p "Reboot now? (yes/no): " REBOOT_ANSWER
+
+if [[ "$REBOOT_ANSWER" =~ ^[Yy][Ee]?[Ss]?$ ]]; then
+    echo "Rebooting system..."
+    sudo reboot
+else
+    echo "Reboot canceled. Please manually reboot when ready and run 'sudo pppoeconf'."
+    exit 0
+fi
