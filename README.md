@@ -61,3 +61,8 @@ Use this single command to download, make the script executable, and start the i
 
 ```bash
 sudo sh -c 'wget -O install.sh [https://raw.githubusercontent.com/faridx82-sys/debian-router/main/install.sh](https://raw.githubusercontent.com/faridx82-sys/debian-router/main/install.sh) && chmod +x install.sh && ./install.sh'
+
+### 2. Post Reboot Configuration
+
+Run sudo pppoeconf
+
