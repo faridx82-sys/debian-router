@@ -14,7 +14,7 @@ If this script has helped you set up your high-performance router, please consid
 
 | Address | QR Code |
 | :--- | :--- |
-| **3Q1hjxTZiYookwLGUudKXAMq5JyKBWBUQd** |  |
+| **3Q1hjxTZiYookwLGUudKXAMq5JyKBWBUQd** | ![Bitcoin QR Code](https://raw.githubusercontent.com/faridx82-sys/debian-router/main/bitco.png) |
 
 ---
 
