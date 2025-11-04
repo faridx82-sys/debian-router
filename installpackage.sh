@@ -25,9 +25,7 @@ apt install -y dnsmasq \
   radvd \
   pppoeconf \
   iptables \
-  unbound \
   ndisc6 \
-  sudo \
   curl
 
 echo "======================================="
