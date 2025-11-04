@@ -60,15 +60,12 @@ The script runs in a batch process but starts with interactive prompts to gather
 
 Use this single command to download, make the script executable, and start the installation. After reboot, please run pppoeconf.
 
-```bash
-sudo sh -c 'wget -O install.sh https://raw.githubusercontent.com/faridx82-sys/debian-router/main/install.sh && chmod +x install.sh && ./install.sh'```
+sudo sh -c 'wget -O install.sh https://raw.githubusercontent.com/faridx82-sys/debian-router/main/install.sh && chmod +x install.sh && ./install.sh'
 
 2. After Reboot Instructions
 
 Run the PPPoE configuration wizard to complete the WAN setup.
 
     Important: While you may be using any temporary IP range to connect during the initial setup, after the script completes and the router reboots, the LAN IP address will be fixed to 192.168.82.1.
-
-Bash
 
 sudo pppoeconf
