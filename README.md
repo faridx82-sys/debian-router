@@ -21,17 +21,19 @@ The script sets up key networking services including **PPPoE WAN**, **NAT/Masque
 
 ## 🛠️ Prerequisites
 
-* A clean installation of **Debian 11 (Bullseye)** or **Debian 12 (Bookworm)** (or similar distro).
-* Two network interfaces (one for WAN, one for LAN). The script assumes the physical WAN interface is `ens19` and the virtual WAN interface is `ppp0`.
+* A clean installation of **Debian 13 (Trixie)** (or similar distro tested with these versions of packages).
+* Two network interfaces (one for WAN, one for LAN). The script expects the virtual WAN interface to be `ppp0`.
 * The script must be run with **root privileges** (`sudo`).
 
 ---
 
-## 🚀 Getting Started (One-Liner Install)
+## 🚀 Getting Started
 
-This single command downloads, makes the script executable, and runs the entire installation process as root. **It will prompt you to enter the LAN interface name.**
+The script runs in a batch process but starts with interactive prompts to gather necessary interface names.
 
 ### 1. Execute the Install Command
+
+Use this single command to download, make the script executable, and start the installation.
 
 ```bash
 sudo sh -c 'wget -O install.sh [https://raw.githubusercontent.com/faridx82-sys/debian-router/main/install.sh](https://raw.githubusercontent.com/faridx82-sys/debian-router/main/install.sh) && chmod +x install.sh && ./install.sh'
