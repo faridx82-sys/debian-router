@@ -46,6 +46,7 @@ The script uses the following predetermined subnet configurations on the LAN int
 ## 🛠️ Prerequisites
 
 * A clean installation of **Debian 13 (Trixie)** (or similar distro tested with these versions of packages).
+* **An active internet connection** is required for the initial script run to download all necessary packages.
 * Two network interfaces (one for WAN, one for LAN). The script expects the virtual WAN interface to be `ppp0`.
 * The script must be run with **root privileges** (`sudo`).
 
@@ -62,4 +63,12 @@ Use this single command to download, make the script executable, and start the i
 ```bash
 sudo sh -c 'wget -O install.sh https://raw.githubusercontent.com/faridx82-sys/debian-router/main/install.sh && chmod +x install.sh && ./install.sh'
 
+2. After Reboot Instructions
 
+Run the PPPoE configuration wizard to complete the WAN setup.
+
+    Important: While you may be using any temporary IP range to connect during the initial setup, after the script completes and the router reboots, the LAN IP address will be fixed to 192.168.82.1.
+
+Bash
+
+sudo pppoeconf
