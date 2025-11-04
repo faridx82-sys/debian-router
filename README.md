@@ -57,12 +57,9 @@ The script runs in a batch process but starts with interactive prompts to gather
 
 ### 1. Execute the Install Command
 
-Use this single command to download, make the script executable, and start the installation.
+Use this single command to download, make the script executable, and start the installation. After reboot don't forget to run sudo pppoeconf to start the pppoe wizard.
 
 ```bash
 sudo sh -c 'wget -O install.sh [https://raw.githubusercontent.com/faridx82-sys/debian-router/main/install.sh](https://raw.githubusercontent.com/faridx82-sys/debian-router/main/install.sh) && chmod +x install.sh && ./install.sh'
 
-### 2. Post Reboot Configuration
-
-Run sudo pppoeconf
 
