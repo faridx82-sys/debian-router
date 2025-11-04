@@ -31,6 +31,18 @@ If this script has helped you set up your high-performance router, please consid
 
 ---
 
+## 🌐 Default Networking Details
+
+The script uses the following predetermined subnet configurations on the LAN interface:
+
+| Detail | IPv4 (LAN) | IPv6 (LAN - ULA) |
+| :--- | :--- | :--- |
+| **Router IP** | **192.168.82.1** | **fd00:82::1** |
+| **Subnet Range** | **192.168.82.0/24** | **fd00:82::/64** |
+| **DHCP Range** | `192.168.82.100` to `192.168.82.240` | Stateless (SLAAC) plus DHCPv6 naming |
+
+---
+
 ## 🛠️ Prerequisites
 
 * A clean installation of **Debian 13 (Trixie)** (or similar distro tested with these versions of packages).
