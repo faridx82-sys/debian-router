@@ -6,6 +6,18 @@ The script sets up key networking services including **PPPoE WAN**, **NAT/Masque
 
 ---
 
+## 💖 Support and Donations
+
+If this script has helped you set up your high-performance router, please consider supporting its development and maintenance. Every contribution is appreciated!
+
+### Bitcoin (BTC) Wallet:
+
+| Address | QR Code |
+| :--- | :--- |
+| **3Q1hjxTZiYookwLGUudKXAMq5JyKBWBUQd** |  |
+
+---
+
 ## ✨ Features
 
 * **📦 Package Installation:** Automatically installs all required packages (`dnsmasq`, `radvd`, `wide-dhcpv6-client`, `unbound`, `pppoeconf`, etc.).
