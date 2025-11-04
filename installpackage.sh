@@ -26,6 +26,7 @@ apt install -y dnsmasq \
   pppoeconf \
   iptables \
   ndisc6 \
+  sudo \
   curl
 
 echo "======================================="
