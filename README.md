@@ -27,10 +27,11 @@ The script sets up key networking services including **PPPoE WAN**, **NAT/Masque
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Getting Started (One-Liner Install)
 
-### 1. Clone the Repository
+This single command downloads, makes the script executable, and runs the entire installation process as root. **It will prompt you to enter the LAN interface name.**
+
+### 1. Execute the Install Command
 
 ```bash
-git clone [https://github.com/faridx82-sys/debian-router.git](https://github.com/faridx82-sys/debian-router.git)
-cd debian-router
+sudo sh -c 'wget -O install.sh [https://raw.githubusercontent.com/faridx82-sys/debian-router/main/install.sh](https://raw.githubusercontent.com/faridx82-sys/debian-router/main/install.sh) && chmod +x install.sh && ./install.sh'
