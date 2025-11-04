@@ -43,21 +43,17 @@ The script uses the following predetermined subnet configurations on the LAN int
 
 ---
 
-## 🛠️ Prerequisites
+## 🔧 Customizing Subnets
 
-* A clean installation of **Debian 13 (Trixie)** (or similar distro tested with these versions of packages).
-* Two network interfaces (one for WAN, one for LAN). The script expects the virtual WAN interface to be `ppp0`.
-* The script must be run with **root privileges** (`sudo`).
+If the default IP addresses conflict with your existing network or you prefer a different range, you must **edit the `install.sh` script** before executing it.
 
----
+After downloading the script (`wget -O install.sh ...`), open the file and change the following hardcoded values:
 
-## 🚀 Getting Started
+### 1. Change IPv4 Settings
 
-The script runs in a batch process but starts with interactive prompts to gather necessary interface names.
-
-### 1. Execute the Install Command
-
-Use this single command to download, make the script executable, and start the installation.
+In the **Section 2: Deploy /etc/network/interfaces Configuration** block, modify the `address` line and optionally the `netmask`:
 
 ```bash
-sudo sh -c 'wget -O install.sh [https://raw.githubusercontent.com/faridx82-sys/debian-router/main/install.sh](https://raw.githubusercontent.com/faridx82-sys/debian-router/main/install.sh) && chmod +x install.sh && ./install.sh'
+# Line to change (New Router IP)
+address 192.168.82.1 
+# Change to, e.g., address 10.0.0.1
